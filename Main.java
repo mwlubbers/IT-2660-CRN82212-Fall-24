@@ -1,83 +1,56 @@
-//import java.util.*;
-/*
- * IT-2660 - Lab 1
- * Megan Lubbers: 
- */
-
-public class Main {
+class Main {
   public static void main(String[] args) {
-    System.out.println("hello, world!");
 
-    Lab1 lab = new Lab1();
-    int[] nums = {5, 9, 3, 12, 7, 3, 11, 5};
+    // Step 1 - Create a BST tree object called lab5Tree
+  BST<Integer> Lab5Tree = new BST<Integer>();
+    // Step 2 - Insert the following values: 13, 22, 36, 5, 48, 17, 39, 2, 26, 40, 29, 34, 10
+  Lab5Tree.insert(13);
+  Lab5Tree.insert(22);
+  Lab5Tree.insert(36);
+  Lab5Tree.insert(5);
+  Lab5Tree.insert(48);
+  Lab5Tree.insert(17);
+  Lab5Tree.insert(39);
+  Lab5Tree.insert(2);
+  Lab5Tree.insert(26);
+  Lab5Tree.insert(40);
+  Lab5Tree.insert(29);
+  Lab5Tree.insert(34);
+  Lab5Tree.insert(10);
 
-    System.out.println("Array In Order");
-    int count=0;
-  while (count < nums.length) {
-  int x = nums[count];
-  count++;
-      System.out.println(x);
-    }
-    System.out.println("Array In Reverse");
-    for (int i=nums.length-1; i>=0; i--) {
-      int x = nums[i];
-          System.out.println(x);
-        }
-        System.out.println("Increment Test = " + lab.increment(1));
-          System.out.println("First Array Value = " + nums[0]);
-      System.out.println("Last Array Value = " +nums[nums.length-1]);
-      System.out.println("Max = " + lab.max(1,6));
-      System.out.println("Min = " + lab.min(2,9));
-      System.out.println("Array Sum = " + lab.sum(nums));
-      System.out.println("Array Average = " + lab.average(nums));
-      System.out.println("Array Max = " + lab.arrayMax(nums));
-      System.out.println("Array Min = " + lab.arrayMin(nums));
-
-
+    // Step 3 - Delete the value 17
+  Lab5Tree.delete(17);
+    // Step 4 - Traverse and output the values using inorder (sorted)
+  System.out.println("Inorder");
+    Lab5Tree.inorder();
+    System.out.println("");
+    // Step 5 - Traverse and output the values using postorder
+  System.out.println("Postorder");
+    Lab5Tree.postorder();
+    System.out.println("");
+    // Step 6 - Traverse and output the values using preorder
+  System.out.println("Preorder");
+    Lab5Tree.preorder();
+    System.out.println("");
+    // Step 7 - Display the result of a search for the value 36
+    System.out.println("Search for 36");
+    boolean find = Lab5Tree.search(36);
+    System.out.println(find);
+    // Step 8 - Display the result of a search for the value 37
+  System.out.println("Search for 37");
+   find = Lab5Tree.search(37);
+   System.out.println(find);
+  // Step 9 - Using the path() method, display the path from the root to 2
+  System.out.println("Path from root to 2");
+  var path = Lab5Tree.path(2);
+  for (BST.TreeNode<Integer> node : path) {
+    System.out.println(node.element);
+    
   }
-}     
-
-// Add all of the methods here
-class Lab1 {
-  public int increment(int num) {
-    return ++num;
+    // Step 10 - Display the path from the root to 34
+    System.out.println("Path from root to 34");
+    path = Lab5Tree.path(34);
+  for (BST.TreeNode<Integer> node : path) {
+    System.out.println(node.element);
   }
-public int max(int a, int b){
-  if (a>b)
-  return a;
-  else return b;
-}
-public int min(int a, int b){
-  if (a>b)
-  return b;
-  else return a;
-}
-public int sum(int[] nums){
-    int sum = 0; 
-    for (int num : nums) {
-        sum += num;
-    }
-
-    return sum; 
-}
-public double average(int[] nums){
-  int sumTotal = sum(nums);
-    double average = (double)sumTotal/nums.length;
-
-    return average;
-  }
-  public int arrayMax(int[] nums){
-    int arrayMax = nums[0];
-    for (int i=1; i < nums.length; i++){
-      arrayMax = max(arrayMax, nums[i]);
-    }
-    return arrayMax;
-  }
-  public int arrayMin(int[] nums){
-    int arrayMin = nums[0];
-    for (int i=1; i < nums.length; i++){
-      arrayMin = min(arrayMin, nums[i]);
-    }
-    return arrayMin;
-  }
-}
+}}
